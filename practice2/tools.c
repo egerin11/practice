@@ -95,10 +95,11 @@ void authorization(User *users) {
 
     if (!found) {
         printf("User is not authorized\n");
+        fclose(file);
         return;
     }
 
-    fclose(file);
+ 
 }
 
 
