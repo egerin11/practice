@@ -82,6 +82,7 @@ void authorization(User *users) {
         int loginHash = -1, passwordHash = -1;
         if (sscanf(buffer, "%d %d", &loginHash, &passwordHash) != 2 || loginHash < 0 || passwordHash < 0) {
             printf("Invalid data format in file\n");
+            fclose(file);
             return;
         }
         found = 0;
@@ -95,11 +96,9 @@ void authorization(User *users) {
 
     if (!found) {
         printf("User is not authorized\n");
-        fclose(file);
-        return;
     }
+    fclose(file);
 
- 
 }
 
 
